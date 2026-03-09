@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Science of Nootropics & Peptides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #444;
+    --ink-muted: #777;
+    --page: #faf9f6;
+    --paper: #f3f1ec;
+    --paper-dark: #e8e5dc;
+    --accent: #2d6a4f;
+    --accent-warm: #b5572a;
+    --accent-blue: #1e4d7b;
+    --accent-light: #d8f3dc;
+    --highlight: #f4d03f;
+    --rule: #d1cdc3;
+    --serif: 'Playfair Display', Georgia, serif;
+    --body: 'Source Serif 4', Georgia, serif;
+    --mono: 'JetBrains Mono', monospace;
+    --max: 900px;
+    --wide: 1100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 18px; }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,249,246,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: var(--wide);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    place-items: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 30%, rgba(45,106,79,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(30,77,123,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    max-width: var(--max);
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 40px;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--ink-light);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    font-weight: 400;
+  }
+  .hero-intro {
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem 2rem;
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 0 4px 4px 0;
+  }
+  .hero-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    color: var(--ink-muted);
+  }
+  .scroll-hint {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-muted);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bob 2s ease-in-out infinite;
+  }
+  .scroll-hint svg { opacity: 0.4; }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  section:nth-child(even) { background: var(--paper); }
+
+  .section-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .section-inner.wide { max-width: var(--wide); }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 32px;
+    background: var(--accent);
+    opacity: 0.4;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+  p { margin-bottom: 1.2rem; color: var(--ink-light); }
+  p:last-child { margin-bottom: 0; }
+
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .card {
+    background: var(--page);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  section:nth-child(even) .card { background: var(--page); }
+  .card:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+  }
+  .card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .card p { font-size: 0.88rem; margin-bottom: 0; }
+
+  /* PILL BADGES */
+  .badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+  .badge {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .badge-green { background: #d8f3dc; color: #1b4332; }
+  .badge-blue { background: #d0e8f5; color: #1e4d7b; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+
+  /* COMPOUND TABLE */
+  .compound-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .compound-card {
+    background: var(--paper-dark);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid transparent;
+  }
+  .compound-card.natural { border-color: var(--accent); }
+  .compound-card.synthetic { border-color: var(--accent-blue); }
+  .compound-card.rx { border-color: var(--accent-warm); }
+  .compound-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--ink);
+  }
+  .compound-type {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    margin-bottom: 0.5rem;
+  }
+  .compound-desc { font-size: 0.8rem; color: var(--ink-light); line-height: 1.5; }
+
+  /* COMPARISON TABLE */
+  .compare-wrap { overflow-x: auto; margin-top: 2rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    min-width: 600px;
+  }
+  thead tr {
+    background: var(--ink);
+    color: var(--page);
+  }
+  thead th {
+    padding: 0.9rem 1.1rem;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  tbody tr { border-bottom: 1px solid var(--rule); transition: background 0.15s; }
+  tbody tr:hover { background: rgba(45,106,79,0.04); }
+  tbody td {
+    padding: 0.85rem 1.1rem;
+    color: var(--ink-light);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tbody td:first-child { font-weight: 600; color: var(--ink); font-family: var(--body); }
+
+  /* MYTH CARDS */
+  .myth-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .myth-card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .myth-header {
+    background: #fef2f2;
+    border-bottom: 1px solid #fecaca;
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .myth-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .myth-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #991b1b;
+    margin-bottom: 0.2rem;
+  }
+  .myth-header h3 { font-size: 0.95rem; color: #7f1d1d; margin: 0; }
+  .myth-body {
+    background: var(--page);
+    padding: 1.25rem 1.5rem;
+  }
+  .myth-body .reality-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .myth-body p { font-size: 0.88rem; margin: 0; }
+
+  /* RESEARCH CARDS */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .research-card {
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  section:nth-child(even) .research-card { background: var(--page); }
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+  .research-compound {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .evidence-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+  .evidence-bar span {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+  .bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--paper-dark);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: var(--accent);
+    transition: width 1s ease;
+  }
+  .research-card p { font-size: 0.88rem; }
+
+  /* RISKS */
+  .risk-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .risk-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--paper);
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+  section:nth-child(even) .risk-item { background: var(--page); }
+  .risk-num {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent-warm);
+    background: #fef3c7;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .risk-item h3 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+  .risk-item p { font-size: 0.83rem; margin: 0; }
+
+  /* FUTURE */
+  .future-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .future-card {
+    padding: 1.75rem 1.5rem;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--page);
+    position: relative;
+    overflow: hidden;
+  }
+  .future-card::before {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .future-card .f-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .future-card h3 { color: var(--page); font-size: 1rem; margin-bottom: 0.5rem; }
+  .future-card p { color: rgba(255,255,255,0.6); font-size: 0.83rem; margin: 0; }
+
+  /* FAQ */
+  .faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+  .faq-q {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .faq-q::before {
+    content: 'Q.';
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    font-size: 0.92rem;
+    color: var(--ink-light);
+    padding-left: 2.5rem;
+  }
+
+  /* NEUROTRANSMITTER SECTION */
+  .nt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .nt-card {
+    text-align: center;
+    padding: 1.25rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--page);
+  }
+  section:nth-child(even) .nt-card { background: var(--paper); }
+  .nt-molecule { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .nt-name { font-family: var(--serif); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .nt-role { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.4; }
+
+  /* DISCLAIMER */
+  .disclaimer-box {
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+  .disclaimer-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .disclaimer-box h3 { font-size: 1rem; color: #92400e; margin-bottom: 0.5rem; }
+  .disclaimer-box p { font-size: 0.88rem; color: #78350f; margin: 0; line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .footer-inner { max-width: var(--max); margin: 0 auto; }
+  footer .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--page);
+    margin-bottom: 1rem;
+  }
+  footer p { font-size: 0.82rem; margin-bottom: 0.5rem; }
+
+  /* PULLQUOTE */
+  blockquote.pullquote {
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.75rem;
+    margin: 2rem 0;
+    background: var(--paper);
+    border-radius: 0 6px 6px 0;
+  }
+  section:nth-child(even) blockquote.pullquote { background: var(--page); }
+  blockquote.pullquote p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  blockquote.pullquote cite {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* INTRO COLUMNS */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; gap: 1.5rem; }
+    .myth-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    h1 { font-size: 2rem; }
+  }
+
+  /* FADE IN ANIMATION */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in:nth-child(2) { animation-delay: 0.1s; }
+  .fade-in:nth-child(3) { animation-delay: 0.2s; }
+  .fade-in:nth-child(4) { animation-delay: 0.3s; }
+
+  /* EVIDENCE LEGEND */
+  .evidence-legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 2rem 0 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--paper-dark);
+    border-radius: 6px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Nootropics & Peptides</a>
+    <ul class="nav-links">
+      <li><a href="#nootropics">Nootropics</a></li>
+      <li><a href="#peptides">Peptides</a></li>
+      <li><a href="#compare">Compare</a></li>
+      <li><a href="#myths">Myths</a></li>
+      <li><a href="#science">Research</a></li>
+      <li><a href="#risks">Risks</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-in">Evidence-Based Science</div>
+    <h1 class="fade-in">The Science of<br><em>Nootropics & Peptides</em></h1>
+    <p class="hero-sub fade-in">Evidence-based explanations of cognitive enhancers, performance compounds, and the myths surrounding them.</p>
+
+    <div class="hero-intro fade-in">
+      <strong style="font-family:var(--serif); color:var(--ink);">Why is everyone talking about this?</strong><br>
+      From Silicon Valley engineers to elite athletes, interest in cognitive enhancement and peptide therapies has surged dramatically. Students reach for compounds that may sharpen focus during exams. Entrepreneurs explore substances said to sustain energy through long work sessions. Athletes investigate peptides for recovery and performance. Biohackers relentlessly experiment on themselves in pursuit of an optimized self.<br><br>
+      Yet amid the enthusiasm, misinformation is rampant. This resource cuts through the noise with clear, scientifically grounded explanations — neither dismissing the field as pseudoscience nor overhyping unproven benefits. The goal: informed understanding.
+    </div>
+
+    <div class="hero-tags">
+      <span class="tag">Neuroscience</span>
+      <span class="tag">Cognitive Science</span>
+      <span class="tag">Pharmacology</span>
+      <span class="tag">Evidence-Based</span>
+      <span class="tag">Biohacking</span>
+    </div>
+
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- WHAT ARE NOOTROPICS -->
+<section id="nootropics">
+  <div class="section-inner">
+    <div class="section-label">Section 01</div>
+    <h2>What Are Nootropics?</h2>
+
+    <div class="two-col">
+      <div>
+        <p>The word <em>nootropic</em> was coined in 1972 by Romanian chemist and psychologist <strong>Dr. Corneliu E. Giurgea</strong>, who synthesized Piracetam — one of the first synthetic cognitive enhancers. Derived from the Greek words <em>noos</em> (mind) and <em>tropos</em> (toward), the term literally means "toward the mind."</p>
+        <p>Giurgea proposed a strict definition: a true nootropic must enhance learning and memory, improve brain function under stress, protect the brain from chemical or physical injury, increase the efficacy of cortical and subcortical control mechanisms, and exhibit very few side effects with extremely low toxicity.</p>
+        <p>In popular usage, the definition has expanded significantly. Today, "nootropic" broadly refers to any natural compound, synthetic drug, or dietary supplement that is believed to improve cognitive functions such as memory, creativity, motivation, attention, or executive function.</p>
+      </div>
+      <div>
+        <blockquote class="pullquote">
+          <p>"A nootropic drug is characterized by a direct functional activation of the higher integrative brain mechanisms that enhances cortical vigilance, a telencephalic functional selectivity, and a particular efficiency in restoring deficient higher nervous activity."</p>
+          <cite>— Dr. Corneliu E. Giurgea, 1972</cite>
+        </blockquote>
+        <p style="font-size:0.88rem;">The distinction matters: the popular definition now includes herbs, vitamins, and prescription drugs — a far broader category than Giurgea originally described.</p>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+    <h3>Types of Nootropics</h3>
+    <p>Nootropics fall into three broad categories, each with distinct mechanisms, safety profiles, and regulatory status.</p>
+
+    <div class="compound-list">
+      <div class="compound-card natural">
+        <div class="compound-name">Caffeine</div>
+        <div class="compound-type">Natural</div>
+        <div class="compound-desc">Adenosine receptor antagonist. The world's most widely used psychoactive substance. Improves alertness, reduces fatigue, mildly enhances working memory.</div>
+      </div>
+      <div class="compound-card natural">
+        <div class="compound-name">L-Theanine</div>
+        <div class="compound-type">Natural</div>
+        <div class="compound-desc">Amino acid found in green tea. Promotes relaxed alertness without sedation. Synergizes well with caffeine to reduce jitteriness.</div>
+      </div>
+      <div class="compound-card natural">
+        <div class="compound-name">Bacopa Monnieri</div>
+        <div class="compound-type">Natural / Ayurvedic Herb</div>
+        <div class="compound-desc">Adaptogenic herb with the strongest clinical evidence for memory enhancement. Effects accumulate over weeks of use.</div>
+      </div>
+      <div class="compound-card natural">
+        <div class="compound-name">Lion's Mane</div>
+        <div class="compound-type">Natural / Functional Mushroom</div>
+        <div class="compound-desc">Contains hericenones and erinacines that stimulate Nerve Growth Factor (NGF) synthesis. Studied for neuroplasticity.</div>
+      </div>
+      <div class="compound-card synthetic">
+        <div class="compound-name">Racetams</div>
+        <div class="compound-type">Synthetic</div>
+        <div class="compound-desc">A family including Piracetam, Aniracetam, Oxiracetam. Modulate AMPA receptors and acetylcholine activity. Variable evidence base.</div>
+      </div>
+      <div class="compound-card synthetic">
+        <div class="compound-name">Noopept</div>
+        <div class="compound-type">Synthetic Peptide-Derived</div>
+        <div class="compound-desc">Dipeptide derivative of Piracetam. Up to 1000× more potent by weight. May increase BDNF and NGF expression in the hippocampus.</div>
+      </div>
+      <div class="compound-card rx">
+        <div class="compound-name">Modafinil</div>
+        <div class="compound-type">Prescription</div>
+        <div class="compound-desc">Approved for narcolepsy and shift-work disorder. Promotes wakefulness via dopamine transporter inhibition. Used off-label by healthy adults for alertness.</div>
+      </div>
+      <div class="compound-card rx">
+        <div class="compound-name">Adderall / Ritalin</div>
+        <div class="compound-type">Prescription (Controlled)</div>
+        <div class="compound-desc">Amphetamine-class drugs approved for ADHD. Significant cognitive effects in those with ADHD; evidence for healthy adults is mixed and risk profile is high.</div>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+    <h3>How Nootropics Affect the Brain: Key Neurotransmitters</h3>
+    <p>Most cognitive enhancers work by modulating neurotransmitter systems — the chemical messengers that neurons use to communicate. Understanding which system a compound targets helps predict both its effects and its risks.</p>
+
+    <div class="nt-grid">
+      <div class="nt-card">
+        <div class="nt-molecule">⚡</div>
+        <div class="nt-name">Dopamine</div>
+        <div class="nt-role">Motivation, reward, focus, working memory. Targeted by Modafinil, Adderall.</div>
+      </div>
+      <div class="nt-card">
+        <div class="nt-molecule">🔗</div>
+        <div class="nt-name">Acetylcholine</div>
+        <div class="nt-role">Learning, memory formation, attention. Targeted by Racetams, Alpha-GPC.</div>
+      </div>
+      <div class="nt-card">
+        <div class="nt-molecule">😌</div>
+        <div class="nt-name">GABA</div>
+        <div class="nt-role">Inhibitory signaling, calmness, anxiety reduction. Targeted by L-Theanine, Phenibut.</div>
+      </div>
+      <div class="nt-card">
+        <div class="nt-molecule">🌊</div>
+        <div class="nt-name">Serotonin</div>
+        <div class="nt-role">Mood, sleep, cognition. Targeted by 5-HTP, some adaptogens.</div>
+      </div>
+      <div class="nt-card">
+        <div class="nt-molecule">🔋</div>
+        <div class="nt-name">Glutamate</div>
+        <div class="nt-role">Primary excitatory neurotransmitter. LTP and memory consolidation. Modulated by Racetams.</div>
+      </div>
+      <div class="nt-card">
+        <div class="nt-molecule">😴</div>
+        <div class="nt-name">Adenosine</div>
+        <div class="nt-role">Promotes sleep pressure and fatigue. Blocked by caffeine to promote wakefulness.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT ARE PEPTIDES -->
+<section id="peptides">
+  <div class="section-inner">
+    <div class="section-label">Section 02</div>
+    <h2>What Are Peptides?</h2>
+
+    <p>Peptides are short chains of amino acids — the same building blocks that make up proteins. The distinction is size: peptides typically contain 2–50 amino acids, while proteins are longer chains (50+). Biologically, peptides act as <strong>signaling molecules</strong>, instructing cells to perform specific functions.</p>
+
+    <p>The human body naturally produces thousands of peptides. Hormones like insulin, growth hormone-releasing hormone (GHRH), and oxytocin are all peptides. This natural origin is one reason peptides have attracted interest in medicine and performance optimization — they operate within the body's existing signaling infrastructure.</p>
+
+    <blockquote class="pullquote">
+      <p>Because peptides mimic naturally occurring molecules, they can be highly specific in their actions — binding to targeted receptors without the broad systemic effects often seen with small-molecule drugs.</p>
+      <cite>— Pharmacological principle</cite>
+    </blockquote>
+
+    <hr class="section-rule">
+    <h3>Notable Research Peptides</h3>
+    <div class="badge-row">
+      <span class="badge badge-amber">⚠ Research Compounds — Not FDA Approved as General Therapeutics</span>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-icon">🔬</span>
+        <h3>BPC-157</h3>
+        <p>Body Protective Compound-157. A pentadecapeptide derived from gastric juice protein. Studied in animal models for tendon/ligament healing, gut protection, and anti-inflammatory effects. Highly popular in the biohacking community. Limited human trials to date.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📈</span>
+        <h3>CJC-1295</h3>
+        <p>A GHRH analogue that stimulates the pituitary gland to release growth hormone (GH). Extended half-life compared to native GHRH. Studied for body composition, recovery, and anti-aging applications. Requires careful dosing to avoid GH overstimulation.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">💉</span>
+        <h3>Ipamorelin</h3>
+        <p>A selective GH secretagogue and ghrelin receptor agonist. Releases GH without significantly affecting cortisol or prolactin. Often stacked with CJC-1295. One of the cleaner GH-releasing peptides available for research.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🧠</span>
+        <h3>Semax</h3>
+        <p>An ACTH-derived neuropeptide with nootropic and neuroprotective properties. Approved in Russia for stroke recovery and cognitive disorders. Increases BDNF, NGF, and dopamine/serotonin activity. Used off-label for focus and mood.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🧘</span>
+        <h3>Selank</h3>
+        <p>A synthetic analogue of the immunomodulatory peptide Tuftsin. Approved in Russia as an anxiolytic. Modulates GABA, serotonin, and enkephalins. Used for anxiety reduction without the sedation and dependence profile of benzodiazepines.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔁</span>
+        <h3>TB-500 (Thymosin β4)</h3>
+        <p>A synthetic version of the naturally occurring Thymosin beta-4 peptide. Involved in actin regulation, angiogenesis, and wound healing. Studied for its potential in injury recovery. Popular among athletes despite limited clinical data.</p>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+    <h3>Peptides vs. Anabolic Steroids: A Critical Distinction</h3>
+    <p>A common and important misconception is conflating peptides with anabolic-androgenic steroids (AAS). They are fundamentally different:</p>
+    <div class="risk-list">
+      <div class="risk-item">
+        <div class="risk-num">01</div>
+        <div>
+          <h3>Chemical Structure</h3>
+          <p>Steroids are lipid-based molecules derived from cholesterol. Peptides are chains of amino acids. Completely different biochemical families.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">02</div>
+        <div>
+          <h3>Mechanism of Action</h3>
+          <p>Steroids bind to nuclear receptors and alter gene expression broadly. Peptides typically bind to cell-surface receptors and trigger specific signaling cascades.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">03</div>
+        <div>
+          <h3>Androgenic Effects</h3>
+          <p>AAS directly activate androgen receptors, causing masculinizing effects. Most research peptides do not bind androgen receptors at all.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">04</div>
+        <div>
+          <h3>Endocrine Suppression</h3>
+          <p>AAS cause significant suppression of the hypothalamic-pituitary-gonadal axis. GH-releasing peptides work within the natural pulsatile GH system.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare">
+  <div class="section-inner wide">
+    <div class="section-label">Section 03</div>
+    <h2>Key Differences: A Comparison</h2>
+    <p>Understanding how these categories differ is essential for informed decision-making. The table below compares nootropics, peptides, and anabolic steroids across key dimensions.</p>
+
+    <div class="compare-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Nootropics</th>
+            <th>Peptides</th>
+            <th>Anabolic Steroids</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chemical Structure</td>
+            <td>Varies widely: amino acids, alkaloids, synthetic small molecules</td>
+            <td>Short amino acid chains (2–50 residues)</td>
+            <td>Lipid-based, 4-ring sterane core derived from cholesterol</td>
+          </tr>
+          <tr>
+            <td>Mechanism of Action</td>
+            <td>Neurotransmitter modulation, receptor binding, enzyme inhibition</td>
+            <td>Bind cell-surface receptors; trigger intracellular signaling</td>
+            <td>Bind nuclear androgen receptors; alter gene transcription</td>
+          </tr>
+          <tr>
+            <td>Primary Use</td>
+            <td>Cognitive enhancement, memory, focus, mood</td>
+            <td>Recovery, hormone regulation, neuroprotection, healing</td>
+            <td>Muscle hypertrophy, performance enhancement</td>
+          </tr>
+          <tr>
+            <td>Administration</td>
+            <td>Oral (primarily), sublingual, intranasal</td>
+            <td>Subcutaneous injection, intranasal, oral (poor bioavailability)</td>
+            <td>Injection (typically), oral, transdermal patch/gel</td>
+          </tr>
+          <tr>
+            <td>Legal Status (US)</td>
+            <td>Varies: OTC supplements → prescription → unscheduled gray area</td>
+            <td>Most are research chemicals — legal to purchase, illegal to sell for human use</td>
+            <td>Schedule III Controlled Substances. Illegal without prescription.</td>
+          </tr>
+          <tr>
+            <td>Short-Term Risk</td>
+            <td>Generally low for natural compounds; higher for stimulants</td>
+            <td>Moderate — limited human safety data for most compounds</td>
+            <td>High — significant cardiovascular and hormonal effects</td>
+          </tr>
+          <tr>
+            <td>Long-Term Safety Data</td>
+            <td>Good for caffeine, L-Theanine; limited for many synthetics</td>
+            <td>Limited — most lack multi-year human trial data</td>
+            <td>Well-documented significant harms with long-term use</td>
+          </tr>
+          <tr>
+            <td>Dependence Potential</td>
+            <td>Low to moderate (caffeine mildly addictive)</td>
+            <td>Low (GH peptides may cause downregulation over time)</td>
+            <td>High — psychological and physiological dependence documented</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MYTHS VS REALITY -->
+<section id="myths">
+  <div class="section-inner">
+    <div class="section-label">Section 04</div>
+    <h2>Myths vs. Reality</h2>
+    <p>The nootropics and peptides space is saturated with hyperbole on both sides — uncritical promotion and equally uncritical dismissal. Here are the most common misconceptions, addressed with evidence-based reasoning.</p>
+
+    <div class="myth-grid">
+      <div class="myth-card">
+        <div class="myth-header">
+          <div class="myth-icon">❌</div>
+          <div>
+            <div class="myth-label">Myth</div>
+            <h3>"All nootropics are drugs"</h3>
+          </div>
+        </div>
+        <div class="myth-body">
+          <div class="reality-label">✓ Reality</div>
+          <p>Many nootropics are naturally occurring compounds found in food and plants — caffeine in coffee, L-Theanine in tea, Bacopa in traditional Ayurvedic medicine. These are dietary supplements, not drugs. The nootropic umbrella spans everything from a cup of green tea to Schedule IV prescription medications. Conflating all categories leads to either unjustified fear or misplaced complacency.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <div class="myth-icon">❌</div>
+          <div>
+            <div class="myth-label">Myth</div>
+            <h3>"Peptides are steroids"</h3>
+          </div>
+        </div>
+        <div class="myth-body">
+          <div class="reality-label">✓ Reality</div>
+          <p>Peptides and steroids are chemically and mechanistically unrelated. Peptides are amino acid chains that work via receptor signaling. Steroids are lipid molecules that alter gene expression through nuclear receptors. Insulin is a peptide. Testosterone is a steroid. They are fundamentally different classes of molecules with different effects, risks, and legal classifications.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <div class="myth-icon">❌</div>
+          <div>
+            <div class="myth-label">Myth</div>
+            <h3>"Cognitive enhancers make you smarter"</h3>
+          </div>
+        </div>
+        <div class="myth-body">
+          <div class="reality-label">✓ Reality</div>
+          <p>No nootropic has been proven to raise baseline intelligence (IQ). What research supports is more modest: certain compounds can improve working memory, sustained attention, or mental fatigue resistance under specific conditions. Modafinil, for instance, appears to benefit sleep-deprived individuals significantly more than well-rested ones. Enhancement of specific cognitive functions is not the same as becoming "smarter."</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <div class="myth-icon">❌</div>
+          <div>
+            <div class="myth-label">Myth</div>
+            <h3>"Natural means safe"</h3>
+          </div>
+        </div>
+        <div class="myth-body">
+          <div class="reality-label">✓ Reality</div>
+          <p>Many of the most potent toxins known to science are entirely natural — ricin, botulinum toxin, arsenic. "Natural" describes origin, not safety. Kava can cause severe liver damage. High-dose Vitamin A causes toxicity. Ephedra, a natural herb, was banned after cardiac events. Safety must be evaluated based on the specific compound, dose, individual health status, and drug interactions — not the natural/synthetic distinction.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <div class="myth-icon">❌</div>
+          <div>
+            <div class="myth-label">Myth</div>
+            <h3>"If it worked for that person, it'll work for me"</h3>
+          </div>
+        </div>
+        <div class="myth-body">
+          <div class="reality-label">✓ Reality</div>
+          <p>Individual variability in response to cognitive compounds is enormous. Genetics (CYP450 enzyme variants), baseline neurotransmitter levels, sleep quality, diet, gut microbiome, and current health all determine response. Anecdotal reports — even many of them — do not establish efficacy for a population. This is precisely why randomized controlled trials with control groups exist. The placebo effect in cognitive testing can be substantial.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <div class="myth-icon">❌</div>
+          <div>
+            <div class="myth-label">Myth</div>
+            <h3>"Research chemicals are safe to self-experiment with"</h3>
+          </div>
+        </div>
+        <div class="myth-body">
+          <div class="reality-label">✓ Reality</div>
+          <p>A compound being legally purchasable as a "research chemical" does not mean it is safe for human consumption. Many lack toxicological data, pharmacokinetic studies, or drug interaction profiles. The self-experimentation culture in biohacking communities normalizes risk-taking that, in a clinical context, would require ethics board approval and informed consent protocols.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT SCIENCE SAYS -->
+<section id="science">
+  <div class="section-inner">
+    <div class="section-label">Section 05</div>
+    <h2>What Science Actually Says</h2>
+    <p>The evidence base across this field varies enormously. Some compounds have decades of clinical research. Others have only anecdotal reports and preliminary animal studies. Below is an honest summary of the research status for key compounds.</p>
+
+    <div class="evidence-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#2d6a4f"></div>Strong clinical evidence</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#74b69c"></div>Moderate evidence</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>Preliminary / mixed evidence</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Largely anecdotal</div>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="research-compound">Bacopa Monnieri</div>
+        <div class="badge-row"><span class="badge badge-green">Memory</span><span class="badge badge-green">Anxiety</span></div>
+        <div class="evidence-bar">
+          <span>Evidence</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          <span>Strong</span>
+        </div>
+        <p>Multiple randomized controlled trials show consistent improvement in delayed recall and memory acquisition. A 2001 study by Roodenrys et al. in <em>Neuropsychopharmacology</em> found significant improvements in verbal learning rate and memory consolidation. Effects are gradual — typically requiring 8–12 weeks of supplementation to manifest.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-compound">L-Theanine + Caffeine</div>
+        <div class="badge-row"><span class="badge badge-green">Focus</span><span class="badge badge-green">Alertness</span></div>
+        <div class="evidence-bar">
+          <span>Evidence</span>
+          <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          <span>Strong</span>
+        </div>
+        <p>The synergistic combination is among the most well-replicated findings in cognitive science. Multiple studies (Owen et al., 2008; Haskell et al., 2008) demonstrate improved attention switching, alertness, and accuracy on cognitive tasks compared to either compound alone. L-Theanine attenuates caffeine-induced anxiety while preserving its alerting effects.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-compound">Modafinil</div>
+        <div class="badge-row"><span class="badge badge-blue">Wakefulness</span><span class="badge badge-amber">Cognition</span></div>
+        <div class="evidence-bar">
+          <span>Evidence</span>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+          <span>Moderate–Strong</span>
+        </div>
+        <p>Approved and well-evidenced for wakefulness promotion in narcolepsy and shift-work disorder. In healthy adults, a 2015 meta-analysis in <em>European Neuropsychopharmacology</em> found consistent benefits for attention, executive function, and learning — but primarily in sleep-deprived individuals. Benefits in non-sleep-deprived healthy adults are less consistent. Not a substitute for sleep.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-compound">Lion's Mane Mushroom</div>
+        <div class="badge-row"><span class="badge badge-amber">Neuroplasticity</span><span class="badge badge-amber">Cognition</span></div>
+        <div class="evidence-bar">
+          <span>Evidence</span>
+          <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+          <span>Preliminary</span>
+        </div>
+        <p>Animal studies show clear induction of Nerve Growth Factor (NGF) via hericenones and erinacines. Human data is limited but promising: a Japanese RCT (Mori et al., 2009) showed improvement in cognitive function in older adults with mild impairment. Larger, longer-duration human trials are needed before strong conclusions can be drawn.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-compound">Racetams (Piracetam)</div>
+        <div class="badge-row"><span class="badge badge-amber">Memory</span></div>
+        <div class="evidence-bar">
+          <span>Evidence</span>
+          <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
+          <span>Mixed</span>
+        </div>
+        <p>Piracetam has an extensive research history, primarily in older or cognitively impaired populations. Evidence for memory benefits in healthy young adults is inconsistent. Mechanism involves modulation of AMPA glutamate receptors and membrane fluidity. The evidence base does not strongly support nootropic effects in cognitively healthy individuals.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-compound">BPC-157</div>
+        <div class="badge-row"><span class="badge badge-red">Recovery</span></div>
+        <div class="evidence-bar">
+          <span>Evidence</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+          <span>Animal Studies Only</span>
+        </div>
+        <p>Extensive animal research documents accelerated tendon, ligament, bone, and intestinal healing. Mechanisms involve upregulation of growth factor receptors (VEGFR2, EGFR) and nitric oxide signaling. However, no peer-reviewed human clinical trials have been published as of 2024. Extrapolating animal data to humans requires caution.</p>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+    <h3>Understanding Levels of Evidence</h3>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-icon">👤</span>
+        <h3>Anecdotal Reports</h3>
+        <p>Personal accounts and community experiences. Valuable for hypothesis generation but susceptible to placebo effects, confirmation bias, and reporting bias. Cannot establish causality.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🐭</span>
+        <h3>Animal Studies</h3>
+        <p>Essential mechanistic data but poor predictors of human response. Many compounds that work in rodents fail in human trials. Species differences in metabolism, receptor density, and cognition are significant.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">👥</span>
+        <h3>Human Observational Studies</h3>
+        <p>Show correlations but cannot establish causation. Confounding variables are difficult to control.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔬</span>
+        <h3>Randomized Controlled Trials</h3>
+        <p>The gold standard. Require a control group, randomization, and ideally double-blinding. Most cognitive compounds have few well-designed RCTs, particularly in healthy young adults.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📊</span>
+        <h3>Meta-Analyses</h3>
+        <p>Statistical pooling of multiple RCTs to identify consistent effects. The strongest form of evidence — though quality depends heavily on the quality of underlying studies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks">
+  <div class="section-inner">
+    <div class="section-label">Section 06</div>
+    <h2>Risks & Limitations</h2>
+    <p>A balanced, evidence-based view of cognitive enhancement requires honest acknowledgment of the unknowns and the risks. This is not a reason to dismiss the entire field — but it is a reason for caution.</p>
+
+    <div class="risk-list">
+      <div class="risk-item">
+        <div class="risk-num">01</div>
+        <div>
+          <h3>Placebo Effect</h3>
+          <p>Cognitive performance is highly susceptible to placebo. Believing you've taken something that improves focus can measurably improve cognitive test performance. This makes self-reporting and uncontrolled experiments unreliable.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">02</div>
+        <div>
+          <h3>Lack of Long-Term Data</h3>
+          <p>Most research compounds have not been studied over multi-year timeframes in humans. This matters because the brain is highly adaptable — effects beneficial short-term may trigger compensatory changes over time.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">03</div>
+        <div>
+          <h3>Drug Interactions</h3>
+          <p>Many nootropics and peptides interact with medications, other supplements, or underlying conditions. Racetams affect coagulation in some individuals. Modafinil reduces effectiveness of hormonal contraceptives. Interactions are understudied.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">04</div>
+        <div>
+          <h3>Supplement Purity</h3>
+          <p>The supplement industry is loosely regulated. Independent lab testing (e.g., Certificate of Analysis from third-party labs) has found mislabeling, contamination, and incorrect dosages in a significant proportion of products.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">05</div>
+        <div>
+          <h3>Individual Variability</h3>
+          <p>Genetic variants in drug-metabolizing enzymes (CYP2D6, CYP3A4), baseline neurochemistry, health status, and lifestyle factors mean that population averages tell you little about how any specific individual will respond.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">06</div>
+        <div>
+          <h3>Regulatory Gray Areas</h3>
+          <p>Many popular research compounds exist in legal gray zones — not illegal to purchase, but not approved for human use. Legal status varies significantly between jurisdictions and can change rapidly.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">07</div>
+        <div>
+          <h3>Neurological Side Effects</h3>
+          <p>Stimulants and some synthetic nootropics carry risks of anxiety, insomnia, headaches, brain fog on withdrawal, and in rare cases more serious neurological effects. These risks are dose-dependent and individual.</p>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-num">08</div>
+        <div>
+          <h3>Opportunity Costs</h3>
+          <p>Investment in nootropics can displace attention from evidence-based cognitive enhancers with far stronger evidence: quality sleep, regular exercise, stress management, and social connection all have robust effects on cognition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE -->
+<section id="future">
+  <div class="section-inner">
+    <div class="section-label">Section 07</div>
+    <h2>The Future of Cognitive Enhancement</h2>
+    <p>We are at an early and exciting inflection point. Several converging trends are likely to reshape how humans think about and pursue cognitive optimization over the next decade.</p>
+
+    <div class="future-grid">
+      <div class="future-card">
+        <div class="f-icon">🧬</div>
+        <h3>Personalized Supplementation</h3>
+        <p>Pharmacogenomic testing will enable tailored protocols based on individual enzyme variants, receptor polymorphisms, and biomarkers — moving beyond population averages to individual response prediction.</p>
+      </div>
+      <div class="future-card">
+        <div class="f-icon">🤖</div>
+        <h3>AI-Driven Health Optimization</h3>
+        <p>Machine learning models trained on continuous biometric data (HRV, sleep stages, glucose, EEG) will identify causal relationships and personalize intervention recommendations in ways impossible with self-reporting.</p>
+      </div>
+      <div class="future-card">
+        <div class="f-icon">⚡</div>
+        <h3>Neurotechnology</h3>
+        <p>Non-invasive brain stimulation (tDCS, TMS), closed-loop neurofeedback, and emerging BCI technologies will offer cognitive modulation without pharmacological intervention — though challenges around safety, efficacy, and equity remain.</p>
+      </div>
+      <div class="future-card">
+        <div class="f-icon">🌿</div>
+        <h3>Biohacking Culture</h3>
+        <p>The democratization of self-experimentation is generating large observational datasets. When paired with rigorous citizen-science methodology, this has potential to accelerate discovery — though regulatory and ethical frameworks lag behind.</p>
+      </div>
+      <div class="future-card">
+        <div class="f-icon">🏛</div>
+        <h3>Regulatory Evolution</h3>
+        <p>Regulatory agencies are increasingly under pressure to develop frameworks for research compounds that exist between food, drug, and supplement categories. Clearer classification would benefit both consumers and researchers.</p>
+      </div>
+      <div class="future-card">
+        <div class="f-icon">🔭</div>
+        <h3>Expanding Research Base</h3>
+        <p>Academic and commercial interest in peptides, neuroplasticity-enhancing compounds, and longevity interventions is growing. Expect more human trials — and more nuanced, compound-specific conclusions — over the coming decade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">Section 08</div>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Are nootropics safe?</div>
+        <div class="faq-a">It entirely depends on the specific compound. Common dietary nootropics like caffeine and L-Theanine have excellent safety profiles when used at normal doses. Natural adaptogens like Bacopa and Ashwagandha are generally well-tolerated. Synthetic compounds and prescription medications carry higher risk profiles and should only be used under medical supervision. The category is too broad for a single safety answer.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are peptides legal?</div>
+        <div class="faq-a">Legal status varies by country and by specific compound. In the United States, most research peptides are not approved by the FDA for human use and cannot be legally sold as dietary supplements or medicines. However, possession is generally not criminalized. They occupy a regulatory gray area where they are legal to purchase as "research chemicals." In other jurisdictions, regulations differ. The legal landscape is also evolving — verify current local regulations before obtaining any compound.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do students actually use cognitive enhancers?</div>
+        <div class="faq-a">Yes, and the practice is widespread. Surveys across universities in the US, UK, and Germany consistently find that 10–35% of students report using prescription stimulants non-medically for academic performance. Caffeine and L-Theanine use is near-universal. Use of Modafinil has been documented at rates of 15–20% in some competitive academic environments. The ethical dimensions — fairness, pressure, health risks — are actively debated in medical ethics literature.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can supplements improve intelligence?</div>
+        <div class="faq-a">There is no evidence that any supplement or nootropic raises baseline intelligence as measured by IQ or general cognitive ability in healthy adults. What is supported is more specific: certain compounds can improve specific cognitive functions (working memory, sustained attention, processing speed) under certain conditions, or reduce cognitive decline in deficiency states or aging. Correcting a nutritional deficiency (B12, iron, omega-3) in someone deficient can have significant cognitive effects — but this reflects restoration of normal function, not enhancement above baseline.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the most evidence-backed nootropic stack?</div>
+        <div class="faq-a">The caffeine + L-Theanine combination has the strongest and most consistent evidence base of any nootropic "stack" — a combination of compounds used together. Optimal ratios studied in research are typically 1:2 (caffeine:theanine), e.g., 100mg caffeine with 200mg L-Theanine. This combination demonstrates reliable improvements in sustained attention and reduced caffeine side effects across multiple RCTs. Bacopa Monnieri is the best-evidenced standalone compound for memory, though effects require weeks of consistent use.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Should I talk to a doctor before trying these?</div>
+        <div class="faq-a">Yes — particularly if you take any medications, have a medical condition, or are considering anything beyond common dietary supplements. Drug interactions, contraindications, and individual health factors can make compounds unsafe for specific individuals even when generally well-tolerated. A sports medicine physician or functional medicine doctor with experience in these compounds is best positioned to advise based on individual circumstances and current bloodwork.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section id="disclaimer" style="padding: 3rem 2rem; background: var(--paper-dark);">
+  <div class="section-inner">
+    <div class="disclaimer-box">
+      <div class="disclaimer-icon">⚠️</div>
+      <div>
+        <h3>Medical Disclaimer</h3>
+        <p>This website is for <strong>educational purposes only</strong> and does not provide medical advice, diagnosis, or treatment recommendations. The information presented here summarizes publicly available scientific literature and is not intended as a substitute for professional medical consultation. Many compounds discussed are research chemicals that have not been approved by regulatory agencies for human use. Individual responses to any supplement, drug, or peptide can vary significantly. Always consult a qualified healthcare provider before beginning any supplementation regimen, particularly if you have existing medical conditions or take medications. Do not self-diagnose or self-treat based on information found on this or any website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Nootropics & Peptides: The Science</div>
+    <p>Educational resource. Not medical advice. Verify information with primary sources and qualified professionals.</p>
+    <p style="margin-top:1.5rem; font-size:0.75rem; opacity:0.4;">Content based on peer-reviewed research available as of 2024. Science evolves — always consult current literature.</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Animate evidence bars on scroll
+  const bars = document.querySelectorAll('.bar-fill');
+  const widths = [];
+  bars.forEach(bar => {
+    widths.push(bar.style.width);
+    bar.style.width = '0%';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = Array.from(bars).indexOf(entry.target);
+        if (index !== -1) {
+          setTimeout(() => {
+            entry.target.style.width = widths[index];
+          }, 200);
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  bars.forEach(bar => observer.observe(bar));
+
+  // Fade in sections on scroll
+  const sections = document.querySelectorAll('.card, .myth-card, .research-card, .risk-item, .future-card, .compound-card');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '0';
+        entry.target.style.transform = 'translateY(16px)';
+        entry.target.style.transition = `opacity 0.5s ease ${i * 0.03}s, transform 0.5s ease ${i * 0.03}s`;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          });
+        });
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(el => {
+    el.style.opacity = '0';
+    fadeObserver.observe(el);
+  });
+</script>
+
+</body>
+</html>
