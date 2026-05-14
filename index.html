@@ -1437,6 +1437,46 @@
     el.style.opacity = '0';
     fadeObserver.observe(el);
   });
+  import { useEffect, useState } from "react";
+
+function App() {
+
+  const [papers, setPapers] = useState([]);
+
+  useEffect(() => {
+
+    fetch("https://raw.githubusercontent.com/Kartikeya808/nootropic-agent/refs/heads/main/data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setPapers(data);
+      });
+
+  }, []);
+
+  return (
+    <div>
+      <h1>Latest Research</h1>
+
+      {papers.map((paper) => (
+        <div key={paper.id} style={{
+          border: "1px solid gray",
+          padding: "10px",
+          marginBottom: "10px"
+        }}>
+          <h2>{paper.title}</h2>
+
+          <p>{paper.abstract}</p>
+
+          <a href={paper.link} target="_blank">
+            Read Study
+          </a>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;
 </script>
 
 </body>
