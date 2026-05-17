@@ -1,4 +1,50 @@
-# README — `nootropiclab-frontend`
+# README — `noottropicsLab-website`
+
+```md
+# Nootropic Lab
+
+A lightweight research aggregation website focused on neuroscience, cognitive enhancement, and nootropics.
+The site dynamically displays scientific studies fetched through a Python-based PubMed ingestion pipeline.
+---
+
+## Live Website:
+https://nootropiclab.vercel.app/
+---
+## Features
+
+- Live research feed
+- Dynamic study rendering
+- Abstract previews
+- Direct PubMed links
+- Lightweight static frontend
+- Automatically expandable architecture
+
+---
+
+## Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Frontend | HTML, CSS, JavaScript |
+| Hosting | Vercel |
+| Data Source | PubMed API |
+| Backend/Data Pipeline | Python |
+| Version Control | Git + GitHub |
+
+---
+
+## How It Works
+
+```text
+PubMed API
+    ↓
+Python Research Agent
+    ↓
+data.json
+    ↓
+Frontend fetch()
+    ↓
+Live Website# README — `nootropiclab-frontend`
 
 ````md
 # Nootropic Agent
@@ -145,114 +191,5 @@ Live website:
 
 [https://nootropiclab.vercel.app/](https://nootropiclab.vercel.app/)
 
-````
 
----
-
-# README — `noottropicsLab-website`
-
-```md
-# Nootropic Lab
-
-A lightweight research aggregation website focused on neuroscience, cognitive enhancement, and nootropics.
-
-The site dynamically displays scientific studies fetched through a Python-based PubMed ingestion pipeline.
-
----
-
-## Live Website
-
-https://nootropiclab.vercel.app/
-
----
-
-## Features
-
-- Live research feed
-- Dynamic study rendering
-- Abstract previews
-- Direct PubMed links
-- Lightweight static frontend
-- Automatically expandable architecture
-
----
-
-## Tech Stack
-
-| Layer | Tech |
-|---|---|
-| Frontend | HTML, CSS, JavaScript |
-| Hosting | Vercel |
-| Data Source | PubMed API |
-| Backend/Data Pipeline | Python |
-| Version Control | Git + GitHub |
-
----
-
-## How It Works
-
-```text
-PubMed API
-    ↓
-Python Research Agent
-    ↓
-data.json
-    ↓
-Frontend fetch()
-    ↓
-Live Website
-````
-
-The frontend dynamically fetches research data from:
-
-```text
-https://raw.githubusercontent.com/Kartikeya808/nootropic-agent/main/data.json
-```
-
----
-
-## Local Development
-
-### Clone Repository
-
-```bash
-git clone https://github.com/Kartikeya808/noottropicsLab-website.git
-cd noottropicsLab-website
-```
-
-### Run Locally
-
-Use VS Code Live Server or Python's local server:
-
-```bash
-python3 -m http.server
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
----
-
-## Future Improvements
-
-* Search functionality
-* Better UI/UX
-* Category filtering
-* AI-generated summaries
-* Dark/light theme toggle
-* Responsive research cards
-* Infinite scrolling / pagination
-
----
-
-## Backend Repository
-
-Backend ingestion pipeline:
-
-[https://github.com/Kartikeya808/nootropic-agent](https://github.com/Kartikeya808/nootropic-agent)
-
-```
 ```
